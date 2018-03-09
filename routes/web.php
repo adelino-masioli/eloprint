@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth.basic');
 
 //customer
 Route::get('/dashboard/customers', 'CustomerController@index')->name('customers')->middleware('auth.basic');
@@ -33,3 +33,4 @@ Route::post('/dashboard/product/store', 'ProductController@store')->name('produc
 Route::get('/dashboard/product/edit/{id}', 'ProductController@edit')->name('product.edit')->middleware('auth.basic');
 Route::post('/dashboard/product/update', 'ProductController@update')->name('product.update')->middleware('auth.basic');
 Route::get('/dashboard/product/destroy/{id}', 'ProductController@destroy')->name('product.destroy')->middleware('auth.basic');
+Route::get('/dashboard/product/duplicate/{id}', 'ProductController@duplicate')->name('product.duplicate')->middleware('auth.basic');

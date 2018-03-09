@@ -1,19 +1,37 @@
 @if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
+<div class="alert alert-danger alert-dismissible fade show">
+    @foreach ($errors->all() as $error)
+    {{ $error }}
+    @endforeach
+
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 @endif
 @if (session('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-success alert-dismissible fade show">
         {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 @endif
 @if (session('error'))
-    <div class="alert alert-danger">
+    <div class="alert alert-danger alert-dismissible fade show">
         {{ session('error') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 @endif
+
+@push('scripts')
+    <script>
+        $(window).load(function(){
+           setTimeout(function(){
+                $('.alert').alert('close');
+           }, 3000);
+        });
+    </script>
+@endpush

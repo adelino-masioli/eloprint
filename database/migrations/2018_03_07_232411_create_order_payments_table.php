@@ -15,11 +15,11 @@ class CreateOrderPaymentsTable extends Migration
     {
         Schema::create('order_payments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('payment');
-            $table->decimal('total', 10, 2);
-            $table->integer('order_id')->unsigned();
+            $table->string('payment')->nullable();
+            $table->decimal('total', 10, 2)->nullable();
+            $table->integer('order_id')->unsigned()->nullable();
             $table->foreign('order_id')->references('id')->on('orders');
-            $table->integer('payment_id')->unsigned();
+            $table->integer('payment_id')->unsigned()->nullable();
             $table->foreign('payment_id')->references('id')->on('payments');
             $table->timestamps();
         });

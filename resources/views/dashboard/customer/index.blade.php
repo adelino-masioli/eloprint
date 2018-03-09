@@ -6,7 +6,7 @@
         <a class="nav-link ml-auto text-muted" href="{{route('customers')}}">Listagem de clientes</a>
 @endcomponent
 
-<div class="container  my-3">
+<div class="container-fluid  my-3">
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -17,9 +17,9 @@
                         <thead>
                             <tr>
                                 <th class="col-md-1 text-center">ID</th>
-                                <th class="col-md-4 text-center">NOME</th>
-                                <th class="col-md-1 text-center">TELEFONE</th>
-                                <th class="col-md-4 text-center">E-MAIL</th>
+                                <th class="col-md-4 text-center">NOME DO CLIENTE</th>
+                                <th class="col-md-2 text-center">TELEFONE</th>
+                                <th class="col-md-3 text-center">E-MAIL</th>
                                 <th class="col-md-2 text-center">AÇÃO</th>
                             </tr>
                         </thead>

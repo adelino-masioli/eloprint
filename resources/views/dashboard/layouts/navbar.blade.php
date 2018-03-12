@@ -12,7 +12,7 @@
         @else
         <li class="nav-item"><a class="nav-link" href="{{ route('customers') }}"><i class="fa fa-users"></i> Clientes</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('products') }}"><i class="fa fa-cubes"></i> Produtos</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('products') }}"><i class="fa fa-dollar-sign"></i> Orçamentos</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('orders') }}"><i class="fa fa-dollar-sign"></i> Orçamentos</a></li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-unlock-alt"></i> {{Auth::user()->name}}</a>

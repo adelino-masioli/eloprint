@@ -2,8 +2,8 @@
 
 @section('content')
 @component('dashboard.layouts.breadcrumbs')        
-        <a class="nav-link" href="{{route('customer.create')}}">Novo</a>
-        <a class="nav-link ml-auto text-muted" href="{{route('customers')}}">Listagem de clientes</a>
+        <a class="nav-link" href="{{route('order.create')}}">Novo Orçamento</a>
+        <a class="nav-link ml-auto text-muted" href="{{route('orders')}}">Listagem de orçamentos</a>
 @endcomponent
 
 <div class="container-fluid  my-3">
@@ -17,22 +17,22 @@
                         <thead>
                             <tr>
                                 <th class="col-md-1 text-center">ID</th>
-                                <th class="col-md-4 text-center">NOME DO CLIENTE</th>
-                                <th class="col-md-2 text-center">TELEFONE</th>
-                                <th class="col-md-4 text-center">E-MAIL</th>
+                                <th class="col-md-7 text-center">NOME DO CLIENTE</th>
+                                <th class="col-md-2 text-center">TOTAL</th>
+                                <th class="col-md-1 text-center">STATUS</th>
                                 <th class="col-md-1 text-center">AÇÃO</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($customers as $customer)
+                            @foreach ($orders as $order)
                                 <tr>
-                                    <td class="text-center">{{$customer->id}}</td>
-                                    <td>{{$customer->name}}</td>
-                                    <td>{{$customer->telephone}}</td>
-                                    <td>{{$customer->email}}</td>
+                                    <td class="text-center">{{$order->id}}</td>
+                                    <td>{{$order->name}}</td>
+                                    <td>{{number_format($order->total, 2, ',', '.')}}</td>
+                                    <td>{{$order->status->status}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('customer.edit', $customer->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil-alt"></i></a>
-                                        <a href="{{route('customer.destroy', $customer->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-trash-alt"></i></a>
+                                        <a href="{{route('order.edit', $order->transaction)}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil-alt"></i></a>
+                                        <a href="{{route('order.destroy', $order->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

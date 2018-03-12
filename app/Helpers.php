@@ -25,4 +25,8 @@ class Helpers {
         $price = str_replace('.', '.', $date);
         return  floatval($price);
     }
+    //helper generate token application
+    public static function  gen_token($size) {
+        return substr(md5(uniqid(rand(), true)), 0, $size);
+    }
 }
